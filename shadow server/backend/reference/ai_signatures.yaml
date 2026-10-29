@@ -1,0 +1,28 @@
+hosts:
+  api.openai.com: OpenAI
+  chatgpt.com: OpenAI
+  api.anthropic.com: Anthropic
+  claude.ai: Anthropic
+  api.mistral.ai: Mistral
+  generativelanguage.googleapis.com: Google
+  gemini.google.com: Google
+  copilot.microsoft.com: Microsoft
+sdks:
+  openai: OpenAI
+  anthropic: Anthropic
+  '@anthropic-ai/sdk': Anthropic
+  mistralai: Mistral
+  google-generativeai: Google
+  google-genai: Google
+  langchain: AI framework
+  llama-index: AI framework
+  ollama: Ollama
+key_patterns:
+  Anthropic: 'sk-ant-[A-Za-z0-9_-]{20,}'
+  OpenAI: 'sk-(?:proj-)?[A-Za-z0-9_-]{20,}'
+processes:
+  ollama: 11434
+  lmstudio: 1234
+model_file_ext: [.gguf, .safetensors, .onnx]
+doc_files: ['README*', '*.md']
+mcp_config_files: [mcp.json, claude_desktop_config.json]

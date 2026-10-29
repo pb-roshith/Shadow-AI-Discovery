@@ -1,0 +1,3 @@
+# LiteLLM 1.106.4 imports CacheableResult, introduced in the MCP 2 API.
+# Install only in this service's environment (see ../../setup/configure_gateway.py).
+mcp==2.3.0

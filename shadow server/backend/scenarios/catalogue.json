@@ -1,0 +1,107 @@
+[
+  {
+    "id": "S1",
+    "title": "Approved application via gateway",
+    "name": "credit-dossier \u2192 Mistral",
+    "description": "The application uses the approved AI gateway. SDK, gateway and network evidence establish the route.",
+    "channels": [
+      "Code",
+      "Gateway",
+      "Network"
+    ],
+    "entity": "credit-dossier",
+    "provider": "Mistral",
+    "expected_decision": "Genuine",
+    "expected_confidence": 100,
+    "expected_risk": 30
+  },
+  {
+    "id": "S2",
+    "title": "Policy Intelligence company loan review",
+    "name": "policy-intelligence / OpenAI / Mistral / Gemini",
+    "description": "Company loan requests are checked against a fictional bank policy. Optional OpenAI, Mistral and Gemini SDK explanations produce actual SDK invocation metadata; historical credential evidence remains separate.",
+    "channels": [
+      "Code",
+      "Secret",
+      "Network"
+    ],
+    "entity": "policy-intelligence",
+    "provider": "OpenAI",
+    "expected_decision": "Not scanned",
+    "expected_confidence": null,
+    "expected_risk": null
+  },
+  {
+    "id": "S3",
+    "title": "Customer PII to public AI",
+    "name": "priya \u2192 chatgpt.com",
+    "description": "An upload containing fourteen fictional account numbers is blocked by DLP before it leaves the machine.",
+    "channels": [
+      "Network",
+      "DLP"
+    ],
+    "user_id": "priya",
+    "provider": "OpenAI",
+    "expected_decision": "Raise issue",
+    "expected_confidence": 85,
+    "expected_risk": 85
+  },
+  {
+    "id": "S4",
+    "title": "Local Ollama runtime (demo)",
+    "name": "Local Ollama runtime (demo)",
+    "description": "A local model runtime, its listening port and a model artifact are correlated on the same device.",
+    "channels": [
+      "Endpoint"
+    ],
+    "user_id": "ahmed",
+    "provider": "Ollama",
+    "expected_decision": "Monitor",
+    "expected_confidence": 80,
+    "expected_risk": 25
+  },
+  {
+    "id": "S5",
+    "title": "CreditDB MCP database tools",
+    "name": "creditdb-MCP",
+    "description": "Independent CreditDB MCP repository with read and write database tools. Discovery inspects its live tool list and audit metadata.",
+    "channels": [
+      "MCP"
+    ],
+    "provider": "creditdb MCP",
+    "expected_decision": "Raise issue",
+    "expected_confidence": 75,
+    "expected_risk": 80,
+    "entity": "creditdb-MCP"
+  },
+  {
+    "id": "S6",
+    "title": "Multi-provider customer chatbot",
+    "name": "customer-assistant ? Gemini / Mistral / OpenAI",
+    "description": "A working chatbot calls Gemini, Mistral or OpenAI through the official SDKs. Discovery links repository imports and dependencies with live SDK invocation metadata.",
+    "channels": [
+      "Code",
+      "Network"
+    ],
+    "entity": "customer-assistant",
+    "provider": "Google",
+    "expected_decision": "Not scanned",
+    "expected_confidence": null,
+    "expected_risk": null
+  },
+  {
+    "id": "S7",
+    "title": "Loan Risk Classifier with local Ollama",
+    "name": "loan-risk-classifier / Ollama",
+    "description": "Actual loan application and recorded local Ollama inference attempts.",
+    "channels": [
+      "Code",
+      "Endpoint"
+    ],
+    "entity": "loan-risk-classifier",
+    "provider": "Ollama",
+    "expected_decision": "Not scanned",
+    "expected_confidence": null,
+    "expected_risk": null
+  }
+]

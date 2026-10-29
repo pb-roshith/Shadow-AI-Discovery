@@ -1,0 +1,18 @@
+listen_host: 127.0.0.1
+listen_port: 8080
+web_port: 8081
+users: [priya, ahmed, dev-svc, app-svc, gateway-svc]
+ai_hosts_from: ..\..\reference\ai_signatures.yaml
+extra_ai_hosts: [files.oaiusercontent.com, ab.chatgpt.com]
+inspect_methods: [POST, PUT, PATCH]
+inspect_max_bytes: 10485760
+dlp_patterns:
+  - label: Customer PII
+    regex: '\bACC-\d{10}\b'
+  - label: Customer PII
+    regex: '\b[A-Z]{5}\d{4}[A-Z]\b'
+  - label: Confidential
+    regex: 'CONFIDENTIAL-INTERNAL'
+dlp_action: block
+offline_mode: false
+logs_dir: ..\..\logs

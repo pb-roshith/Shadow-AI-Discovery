@@ -1,0 +1,7 @@
+user_id,display_name,department,dept_criticality,type
+app-svc,Credit Dossier service,Credit Technology,High,service
+gateway-svc,AI Gateway service,Enterprise AI Platform,High,service
+dev-svc,Lending dev service,Lending Technology,High,service
+priya,Priya Sharma,Retail Lending,High,human
+ahmed,Ahmed Khan,Risk Analytics,Medium,human
+customer-assistant-svc,Customer Assistant service,Operations,Low,service

@@ -1,0 +1,4 @@
+ci_name,ci_type,owner,criticality,data_classification,holds_customer_data
+credit-dossier,application,Credit Technology,High,Confidential,yes
+creditdb,datastore,Credit Data Platform,High,Confidential,yes
+ai-gateway,platform,Enterprise AI Platform,High,Internal,no

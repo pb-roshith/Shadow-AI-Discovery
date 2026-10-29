@@ -1,0 +1,84 @@
+join_rules:
+- id: J1
+  description: Same repo/app name and same AI provider
+  used_in: S1, S2, S6, S7
+- id: J2
+  description: Same credential fingerprint
+  used_in: (key reuse)
+- id: J3
+  description: Repo's service account/author = proxy user and same provider
+  used_in: S2
+- id: J4
+  description: 'Network + DLP: same user, same website, within ±2 minutes'
+  used_in: S3
+- id: J5
+  description: Same device and same AI runtime (process ↔ port ↔ model file)
+  used_in: S4
+- id: J6
+  description: MCP config server ↔ running server ↔ tool-call audit
+  used_in: S5
+over_merge_guard: Shared user, device or provider alone never links separate applications.
+  Local loan-classifier calls are linked by the application and provider, and stay
+  separate from ambient endpoint and demo evidence.
+decision_rules:
+- id: R0
+  condition: Exposed credential detected in a file or Git history, regardless of tool
+    approval
+  decision: RAISE ISSUE
+- id: R1
+  condition: confidence < {false_positive}
+  decision: FALSE POSITIVE
+- id: R3
+  condition: not Approved AND risk ≥ {issue_risk}
+  decision: RAISE ISSUE
+- id: R4
+  condition: Approved AND risk ≥ {issue_risk}
+  decision: RAISE ISSUE
+- id: R2
+  condition: Approved AND confidence ≥ {approved_confidence}
+  decision: GENUINE
+- id: R5
+  condition: otherwise
+  decision: MONITOR
+confidence:
+- key: direct
+  label: Direct evidence
+  description: Runtime activity {runtime} · MCP server/credential {credential} · SDK
+    {sdk} · model file {model} · doc mention {doc}
+- key: identity
+  label: Identity link
+  description: Direct from evidence {direct} · via repo register {register}
+- key: technology
+  label: Technology correlation
+  description: 'Signal types: ≥3 → {three} · 2 → {two} · 1 → {one}'
+- key: recurrence
+  label: Recurrence
+  description: 'Events: ≥10 → {ten} · 2–9 → {two} · 1 → {one}'
+- key: channels
+  label: Independent channels
+  description: ≥3 → {three} · 2 → {two} · 1 → {one}
+risk:
+- key: data
+  label: Data sensitivity
+  description: Customer PII {pii} · Confidential {confidential} · exposed key {credential}
+- key: external
+  label: External exposure
+  description: Direct external {direct} · via gateway {gateway} · local 0
+- key: autonomy
+  label: Autonomy / permissions
+  description: Write-capable agent {write} · programmatic/read {programmatic} · human/local
+    {interactive}
+- key: criticality
+  label: Business criticality
+  description: High {High} · Medium {Medium} · Low {Low} · unknown {Unknown}
+- key: regulatory
+  label: Regulatory / customer
+  description: PII or write to customer store {pii_or_write} · Confidential / customer-data
+    app {confidential_or_customer}
+- key: control
+  label: Control weakness
+  description: +{unapproved} not approved · +{weakness} bypass/plaintext key/write-capable MCP/no owner
+inventory_note: Tool approvals are global across all repositories. An application
+  is Approved only when every detected tool is Approved; missing tool approvals remain
+  Unknown.
+issue_due: 5 working days

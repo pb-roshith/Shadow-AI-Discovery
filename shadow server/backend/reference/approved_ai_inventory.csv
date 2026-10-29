@@ -1,0 +1,4 @@
+inv_id,asset,tool_name,match_type,match_value,provider,required_route,status,owner
+AI-INV-1022,Mistral,Mistral,tool,Mistral,Mistral,any,Approved,Credit Technology
+AI-INV-1001,Microsoft 365 Copilot,Copilot,tool,Copilot,Microsoft,any,Approved,IT Productivity
+AI-INV-1030,Public ChatGPT,GPT / ChatGPT,tool,GPT / ChatGPT,OpenAI,any,Restricted,CISO Office

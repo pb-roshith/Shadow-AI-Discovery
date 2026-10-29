@@ -1,0 +1,2 @@
+﻿provider: gemini
+# Providers and models are configured via backend environment variables.

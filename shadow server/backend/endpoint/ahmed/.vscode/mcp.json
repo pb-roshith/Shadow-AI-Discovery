@@ -1,0 +1,11 @@
+{
+  "mcpServers": {
+    "creditdb": {
+      "url": "http://127.0.0.1:8765/mcp"
+    },
+    "docs": {
+      "url": "http://127.0.0.1:8766/mcp",
+      "discovery_role": "non_ai_reference"
+    }
+  }
+}

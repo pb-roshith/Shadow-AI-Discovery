@@ -1,0 +1,30 @@
+model_list:
+  - model_name: mistral-small
+    litellm_params:
+      model: mistral/mistral-small-latest
+      api_key: os.environ/MISTRAL_API_KEY
+  - model_name: gemini-2.0-flash
+    litellm_params:
+      model: gemini/gemini-3.5-flash-lite
+      api_key: os.environ/GEMINI_API_KEY
+  - model_name: gemini-3.5-flash-lite
+    litellm_params:
+      model: gemini/gemini-3.5-flash-lite
+      api_key: os.environ/GEMINI_API_KEY
+  - model_name: claude-sonnet
+    litellm_params:
+      model: anthropic/claude-3-5-sonnet-latest
+      api_key: os.environ/ANTHROPIC_API_KEY
+  - model_name: gpt-4o-mini
+    litellm_params:
+      model: openai/gpt-4o-mini
+      api_key: os.environ/OPENAI_API_KEY
+litellm_settings:
+  num_retries: 0
+  request_timeout: 35
+  callbacks: [services.gateway.callback.metadata_callback]
+  set_verbose: false
+general_settings:
+  disable_spend_logs: true
+  # Local development gateway; the root launcher binds it to 127.0.0.1 only.
+  dangerously_permit_weak_or_unset_master_key: true

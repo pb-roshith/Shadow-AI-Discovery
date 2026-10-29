@@ -1,0 +1,17 @@
+thresholds:
+  false_positive: 40
+  approved_confidence: 70
+  issue_risk: 70
+confidence:
+  direct: {runtime: 30, credential: 25, sdk: 15, model: 10, doc: 5, max: 30}
+  identity: {direct: 20, register: 10, max: 20}
+  technology: {three: 20, two: 15, one: 5, max: 20}
+  recurrence: {ten: 15, two: 10, one: 0, max: 15}
+  channels: {three: 15, two: 10, one: 0, max: 15}
+risk:
+  data: {pii: 25, confidential: 20, credential: 15, max: 25}
+  external: {direct: 15, gateway: 5, max: 15}
+  autonomy: {write: 20, programmatic: 10, interactive: 5, max: 20}
+  criticality: {High: 15, Medium: 10, Low: 5, Unknown: 8, max: 15}
+  regulatory: {pii_or_write: 15, confidential_or_customer: 10, max: 15}
+  control: {unapproved: 5, weakness: 5, max: 10}

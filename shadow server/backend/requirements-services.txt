@@ -1,0 +1,4 @@
+-r requirements.txt
+mitmproxy>=11,<13
+litellm[proxy]>=1.70,<2
+pg8000>=1.31,<2

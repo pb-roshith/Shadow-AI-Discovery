@@ -1,0 +1,4 @@
+repo,owner,business_unit,service_account,criticality,handles_customer_data
+credit-dossier,Credit Technology,Credit,app-svc,High,yes
+policy-intelligence,Ravi Menon,Lending,dev-svc,High,yes
+customer-assistant,Sanjay Iyer,Operations,customer-assistant-svc,Low,no

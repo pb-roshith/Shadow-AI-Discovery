@@ -1,0 +1,24 @@
+{
+  "id": "DEMO-CORP-001",
+  "version": "1.0",
+  "title": "Sample Bank — Corporate Lending Policy",
+  "notice": "Fictional demonstration policy. A compliance result is not a bank credit approval.",
+  "currency": "INR",
+  "assumed_annual_interest_percent": 12,
+  "repayment_method": "Equal monthly instalments at a fixed illustrative annual interest rate of 12%, excluding fees. Annual proposed debt service equals 12 monthly instalments, including for terms below 12 months (conservative annualisation).",
+  "clauses": [
+    {"id":"P01","title":"Operating history","field":"years_in_business","operator":"min","value":3,"text":"The company must have operated for at least 3 years."},
+    {"id":"P02","title":"Permitted industry","field":"industry","operator":"not_in","value":["gambling","speculative_finance"],"text":"Gambling and speculative finance companies are ineligible."},
+    {"id":"P03","title":"Permitted loan purpose","field":"purpose","operator":"in","value":["working_capital","equipment","expansion"],"text":"Loans may fund working capital, equipment or business expansion only."},
+    {"id":"P04","title":"Loan amount","field":"loan_amount","operator":"range","value":[500000,50000000],"text":"Requested principal must be between INR 500,000 and INR 50,000,000 inclusive."},
+    {"id":"P05","title":"Loan tenure","field":"term_months","operator":"max","value":60,"text":"The repayment term must not exceed 60 months."},
+    {"id":"P06","title":"Annual revenue","field":"annual_revenue","operator":"min","value":10000000,"text":"Latest annual revenue must be at least INR 10,000,000."},
+    {"id":"P07","title":"Loan to revenue","field":"loan_to_revenue_percent","operator":"max","value":30,"text":"Requested principal must not exceed 30% of annual revenue. Zero revenue fails this clause."},
+    {"id":"P08","title":"Debt service coverage","field":"dscr","operator":"min","value":1.25,"text":"Annual operating cash flow divided by existing annual debt service plus annualised proposed debt service must be at least 1.25."},
+    {"id":"P09","title":"Collateral coverage","field":"collateral_coverage_percent","operator":"min","value":125,"text":"Collateral value must be at least 125% of requested principal."},
+    {"id":"P10","title":"Company credit score","field":"credit_score","operator":"min","value":700,"text":"The demonstration company credit score must be at least 700 on a 300–900 scale."},
+    {"id":"P11","title":"Default history","field":"defaults_last_3_years","operator":"max","value":0,"text":"There must be no credit defaults in the last 3 years."},
+    {"id":"P12","title":"KYC documentation","field":"kyc_complete","operator":"equals","value":true,"text":"Company KYC must be complete."},
+    {"id":"P13","title":"Audited financial statements","field":"audited_financials","operator":"equals","value":true,"text":"Audited financial statements for the latest 2 financial years must be available."}
+  ]
+}
