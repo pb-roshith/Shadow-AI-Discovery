@@ -110,7 +110,6 @@ h2,.linked-clues>h2{font-size:18px}h3{font-size:15px}
 .metadata-note{font-size:14px;line-height:1.4;margin-top:9px;color:#6b7d96}
 .issues-table table{min-width:1000px}
 .issues-table th{font-weight:500}
-.issues-table th:nth-child(1){width:8%}.issues-table th:nth-child(2){width:38%}.issues-table th:nth-child(3){width:10%}.issues-table th:nth-child(4){width:10%}.issues-table th:nth-child(5){width:6%}.issues-table th:nth-child(6){width:23%}.issues-table th:nth-child(7){width:5%}
 .issues-table tbody tr{cursor:pointer}.issues-table tbody tr:hover{background:#f7faff}
 .issues-table .badge{font-size:12px;padding:3px 9px}
 @media(max-width:1200px){.compact-factor-row{grid-template-columns:minmax(120px,160px) minmax(50px,1fr) 48px;gap:7px;font-size:13px}.compact-factor-row>b{font-size:13px}}
